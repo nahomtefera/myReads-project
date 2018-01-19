@@ -8,6 +8,9 @@ import ReadBooks from './components/readBooks/readBooks'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+console.log(BooksAPI.getAll().then((books) => books))
+
+
 class BooksApp extends React.Component {
   state = {
     allBooks: [],
