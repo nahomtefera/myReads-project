@@ -41,9 +41,9 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <CurrentlyReading/>
-                <WantToRead/>
-                <ReadBooks/>
+                <CurrentlyReading books={this.state.currentRead}/>
+                <WantToRead books={this.state.wantRead}/>
+                <ReadBooks books={this.state.read}/>
               </div>
             </div>
           <div className="open-search">
