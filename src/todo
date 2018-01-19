@@ -22,4 +22,7 @@
     - Create new variable inside render, called sortedBook
     - Make an if statement where if the user didn't type anything sortedBooks will be equal to this.prop.books
     - And if the user has typed something, we will call filter on this.prop.books to get rid of the books that don't match the query
-    
+
+5. Work on bookshelves
+    - In app.js we are going to add new value pairs inside state: currentlyReading, wantToRead and currentlyReading
+    - In the componentDidMount function we will setState those values to the books filtered by shelf.
