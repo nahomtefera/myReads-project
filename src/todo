@@ -1,0 +1,7 @@
+1. Install react-router-dom
+    - Go to index.js and wrap <App> inside <BrowserRouter>
+    - In app.js import {Link} from react-router-dom and modify <a> to <Link> in app.js
+    - In app.js import {Route} from react-router-dom carefuly remove the function that changes the website depending on state.
+        and replace wrap the Search content and Bookshelf content on diferent <Router>
+2. Refactor app.js to use react-router instead of using state to change page.
+3. Create components to separate different Bookshelves
