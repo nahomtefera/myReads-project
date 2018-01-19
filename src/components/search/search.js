@@ -21,6 +21,15 @@ class Search extends Component {
     }
 
     render() {
+        let sortedBooks;
+        if(this.state.query) {
+            const match = new RegExp(escapeRegExp(this.state.query), 'i');
+            sortedBooks = this.props.books.filter((book)=> match.test(book.title) )
+            console.log(sortedBooks)
+        } else {
+            sortedBooks = this.props.books;
+        }
+
         return(
             <div className="search-books">
                 <div className="search-books-bar">
@@ -36,7 +45,7 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.props.books.map((book)=>{
+                        {sortedBooks.map((book)=>{
                             return (
                                 <li key={book.id}>
                                     <div className="book">

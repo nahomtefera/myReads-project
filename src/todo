@@ -3,7 +3,23 @@
     - In app.js import {Link} from react-router-dom and modify <a> to <Link> in app.js
     - In app.js import {Route} from react-router-dom carefuly remove the function that changes the website depending on state.
         and replace wrap the Search content and Bookshelf content on diferent <Router>
+
 2. Create components to separate different parts of the app   
     - Create folder components inside src 
     - Refactor app.js to remove the 'Search' page and put it inside the component folder
     - Refactor app.js to remove bookseleves and create new components for each of them
+
+3. Work on Search component
+    - Install 'escape-regexp' and 'sort-by' packages that will be used later to sort by query.
+    - Pass the list of all books to Search Component as a prop.
+        - In order to do that go to App.js and inside state create allBooks=[].
+        - Then call the function 'componentDidMount' and make the API call inside this function to get all the books.
+        - After the API call push .then() and inside this function make a call to this.setState and pass the result of the API call to allBooks inside state.
+    - Once allBooks has been passed to Search component we will start by displaying all the books.
+        - Call map() function on the allBooks prop and return a list with the books.
+
+4. Sort books on Search component
+    - Create new variable inside render, called sortedBook
+    - Make an if statement where if the user didn't type anything sortedBooks will be equal to this.prop.books
+    - And if the user has typed something, we will call filter on this.prop.books to get rid of the books that don't match the query
+    
