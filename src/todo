@@ -6,3 +6,4 @@
 2. Create components to separate different parts of the app   
     - Create folder components inside src 
     - Refactor app.js to remove the 'Search' page and put it inside the component folder
+    - Refactor app.js to remove bookseleves and create new components for each of them

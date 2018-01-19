@@ -8,21 +8,25 @@ import ReadBooks from './components/readBooks/readBooks'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
-const books = BooksAPI.getAll().then(books=> {console.log(books)});
-// console.log(books)
-
 class BooksApp extends React.Component {
   state = {
+    allBooks: [],
     currentRead: [],
     wantRead: [],
     read: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => this.setState({
+      allBooks: books
+    }));
   }
 
   render() {
     return (
       <div className="app">
         <Route path="/search" render={()=>(
-          <Search/>
+          <Search books={this.state.allBooks}/>
         )}/>
         <Route exact path="/" render={()=>(
           <div className="list-books">
