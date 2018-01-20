@@ -46,26 +46,26 @@ class Search extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {sortedBooks.map((book)=>{
-                            return (
-                                <li key={book.id}>
-                                    <div className="book">
-                                        <div className="book-top">
-                                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
-                                            <div className="book-shelf-changer">
-                                            <select>
-                                                <option value="none" disabled>Move to...</option>
-                                                <option value="currentlyReading">Currently Reading</option>
-                                                <option value="wantToRead">Want to Read</option>
-                                                <option value="read">Read</option>
-                                                <option value="none">None</option>
-                                            </select>
-                                            </div>
+                            return(
+                            <li key={book.id}>
+                                <div className="book">
+                                    <div className="book-top">
+                                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                                        <div className="book-shelf-changer">
+                                        <select value={book.shelf} id={book.id} onChange={this.props.updateBook}>
+                                            <option value="">Move to...</option>
+                                            <option value="currentlyReading">Currently Reading</option>
+                                            <option value="wantToRead">Want to Read</option>
+                                            <option value="read">Read</option>
+                                            <option value="none">None</option>
+                                        </select>
                                         </div>
-                                        <div className="book-title">{book.title}</div>
-                                        <div className="book-authors">{book.author}</div>
                                     </div>
-                                </li>
-                            )
+                                    <div className="book-title">{book.title}</div>
+                                    <div className="book-authors">{book.author}</div>
+                                </div>
+                            </li>
+                        )
                         })}
                     </ol>
                 </div>

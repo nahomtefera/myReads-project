@@ -26,3 +26,5 @@
 5. Work on bookshelves
     - In app.js we are going to add new value pairs inside state: currentlyReading, wantToRead and currentlyReading
     - In the componentDidMount function we will setState those values to the books filtered by shelf.
+    - Then we will pass the each state to it's corresponding component as a prop.
+    - We then go to the component of each bookshelf, we remove the manually inputed books and we iterate through the books prop to list each book.
