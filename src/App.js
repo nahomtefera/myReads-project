@@ -37,14 +37,16 @@ class BooksApp extends React.Component {
     let book = selectedBook.target;
     let bookShelf = selectedBook.target.value;
 
-    BooksAPI.update(book, bookShelf);
-  
-    BooksAPI.getAll().then((books) => this.setState({
-      allBooks: books,
-      currentRead: books.filter((book)=> book.shelf === "currentlyReading"),
-      wantRead: books.filter((book)=> book.shelf === "wantToRead"),
-      read: books.filter((book)=> book.shelf === "read")
-    }));
+    BooksAPI.update(book, bookShelf).then((something)=>{
+      BooksAPI.getAll().then((books) => this.setState({
+        allBooks: books,
+        currentRead: books.filter((book)=> book.shelf === "currentlyReading"),
+        wantRead: books.filter((book)=> book.shelf === "wantToRead"),
+        read: books.filter((book)=> book.shelf === "read")
+      }));
+    });
+    
+
   }
 
   render() {
@@ -56,7 +58,7 @@ class BooksApp extends React.Component {
         <Route exact path="/"  render={({history})=>(
           <div className="list-books">
             <div className="list-books-title">
-              <h1>MyReads</h1>
+              <h1>My Reads</h1>
             </div>
             <div className="list-books-content">
               <div>
